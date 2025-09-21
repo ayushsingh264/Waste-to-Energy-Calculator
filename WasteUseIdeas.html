@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suggestions | Waste Use Ideas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>♻ Waste Suggestion Tool</h1>
+    <label for="wasteType">Enter a type of waste (e.g., banana peel, paper, plastic):</label>
+    <input type="text" id="wasteType" placeholder="e.g., banana peel">
+    <button onclick="showSuggestion()">Suggest Uses</button>
+    <div id="suggestionResult"></div>
+    <a href="endpage.html"><button>Finish</button></a>
+  </div>
+
+  <script>
+    function showSuggestion() {
+      const type = document.getElementById("wasteType").value.toLowerCase();
+      let suggestion = "";
+
+      if (type.includes("banana") || type.includes("fruit")) {
+        suggestion = "🍌 You can compost it or make organic fertilizer.";
+      } else if (type.includes("plastic")) {
+        suggestion = "♻ You can recycle it into containers, furniture, or 3D printing material.";
+      } else if (type.includes("paper")) {
+        suggestion = "📄 Use for paper mache, recycle into handmade paper.";
+      } else if (type.includes("food")) {
+        suggestion = "🥗 Make compost or biogas.";
+      } else {
+        suggestion = "🔍 Sorry, we are still learning more about this waste type!";
+      }
+
+      document.getElementById("suggestionResult").innerText = suggestion;
+    }
+  </script>
+</body>
+</html>
